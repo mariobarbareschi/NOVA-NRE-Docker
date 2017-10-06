@@ -1,6 +1,7 @@
 #!/bin/sh
-
-cd /opt/NOVA
+cd /opt
+mkdir NOVA
+cd NOVA
 git clone https://github.com/TUD-OS/NRE
 cd NRE/cross
 ./build.sh x86_64
