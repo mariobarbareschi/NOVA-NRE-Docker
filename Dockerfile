@@ -10,3 +10,14 @@ RUN apt-get update && \
     apt-get install -y libmpcdec-dev libmpfr-dev libgmp-dev libmpc-dev && \
     apt-get install -y scons
 
+RUN cd /opt && \
+    git clone https://github.com/TUD-OS/NRE && \
+    cd NRE/cross && \
+    ./build.sh x86_32 && \
+    cd .. && \
+    git submodule init && git submodule update && \
+    cd nre && \
+    export NRE_BUILD=release && \
+    export NRE_TARGET=x86_32 && \
+    ./dist/download.sh && \
+    ./b
