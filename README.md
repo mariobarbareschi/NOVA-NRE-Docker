@@ -1,6 +1,8 @@
 # NOVA-NRE-Docker
 A lightweight environment which provides a minimal configuration to let you compile the Nova micro-hypervisor and NRE 
 
+--------
+
 ## Getting started
 The Nova-NRE compilation environment is released as a docker image. You can build it by your own just typing
 
@@ -16,12 +18,8 @@ Run the container into an image sharing the NOVA folder
 
 Once you are into the docker container, just execute the getnova.sh script.
 
-### (UN)LICENSE ###
---------
-
+### (UN)LICENSE
 Actually, this project is unlicensed.
 
-### Contributing ###
-----------
-
+### Contributing
 Github is for social coding: if you want to write code, I encourage contributions through pull requests from forks of this repository.
