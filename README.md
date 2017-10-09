@@ -1,3 +1,4 @@
+[![](https://images.microbadger.com/badges/image/mariobarbareschi/nova-nre.svg)](https://microbadger.com/images/mariobarbareschi/nova-nre "Get your own image badge on microbadger.com")[![Build Status](https://travis-ci.org/mariobarbareschi/NOVA-NRE-Docker.svg?branch=master)](https://travis-ci.org/mariobarbareschi/NOVA-NRE-Docker)
 # NOVA-NRE-Docker
 A lightweight environment which provides a minimal configuration to let you compile the [Nova micro-hypervisor](https://github.com/TUD-OS/NOVA) and [NRE](https://github.com/TUD-OS/NRE) 
 
