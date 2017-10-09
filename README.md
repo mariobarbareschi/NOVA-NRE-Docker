@@ -37,7 +37,7 @@ We need to run everything related to the compilation/configuration of the NOVA-N
     export NRE_BUILD=release
     export NRE_TARGET=x86_32
     ./dist/download.sh
-    cd ./b qemu boot/vmmng
+    ./b qemu boot/vmmng
     
 You will eventually get the error about the fact that qemu is not available into the container. Let us copy what has been compiled outside the container and just re-run the failing-command into a local shell:
 
