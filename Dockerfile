@@ -19,5 +19,4 @@ RUN cd /opt && \
     cd nre && \
     export NRE_BUILD=release && \
     export NRE_TARGET=x86_32 && \
-    ./dist/download.sh && \
-    ./b
+    ./dist/download.sh
