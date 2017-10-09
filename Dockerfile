@@ -17,4 +17,4 @@ RUN cd /opt && \
     cd .. && \
     git submodule init && git submodule update && \
     export NRE_BUILD=release && \
-    export NRE_TARGET=x86_32 && \
+    export NRE_TARGET=x86_32
