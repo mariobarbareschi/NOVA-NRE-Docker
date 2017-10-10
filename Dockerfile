@@ -18,6 +18,7 @@ RUN cd /opt && \
     git submodule init && git submodule update && \
     export NRE_BUILD=release && \
     export NRE_TARGET=x86_32 && \
+    export TERM=xterm && \
     cd nre/ && \
     ./dist/download.sh && \
     (./b qemu boot/vmmng || true)
