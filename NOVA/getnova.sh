@@ -17,7 +17,7 @@ if ! [[ $($QEMU_BIN_x86_64 -version) =~ 'version 2.0.0' ]]; then
   QEMU_BIN_x86_64=$PWD/x86_64-softmmu/qemu-system-x86_64
 fi
 
-# Moving compiled runtime envirorment outside
+# Moving compiled runtime environment outside
 cd $(dirname $0)
 container=$(docker ps -aqf "ancestor=mariobarbareschi/nova-nre" -f "status=running")
 docker cp $container:/opt/NRE/nre ./
