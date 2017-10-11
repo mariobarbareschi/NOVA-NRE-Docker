@@ -39,11 +39,7 @@ If you are one of the good guys out there and already have a full working qemu v
 
 Finally, we are able to launch the demo. You need a shell for docker
 
-<<<<<<< HEAD
     docker run -it mariobarbareschi/nova-nre
-=======
-    docker -it mariobarbareschi/nova-nre
->>>>>>> 2a1ec639fadb101fe85fba7a5c4365ea3a4e448f
 
 After that, in a different shell you need to run
 
