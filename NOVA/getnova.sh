@@ -20,8 +20,8 @@ fi
 # Moving compiled runtime environment outside
 cd $(dirname $0)
 container=$(docker ps -aqf "ancestor=mariobarbareschi/nova-nre" -f "status=running")
-docker cp $container:/opt/NRE/nre ./
-cd ./nre/build/x86_32-release
+docker cp $container:/opt/NRE ./
+cd ./NRE/nre/build/x86_32-release
 cd dist
 rm -r ./imgs
 ln -s ../../../dist/imgs ./imgs
