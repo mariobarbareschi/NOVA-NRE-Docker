@@ -11,7 +11,7 @@ RUN apt-get update && \
     apt-get install -y scons
 
 RUN cd /opt && \
-    git clone https://github.com/TUD-OS/NRE && \
+    git clone https://github.com/ironista/NRE && \
     cd NRE/cross && \
     ./build.sh x86_32 && \
     cd .. && \
