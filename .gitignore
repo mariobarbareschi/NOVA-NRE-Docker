@@ -1,3 +1,7 @@
+# File used to launch NRE on qemu
+imgs
+qemu/
+
 # Prerequisites
 *.d
 
