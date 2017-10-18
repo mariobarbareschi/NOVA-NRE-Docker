@@ -1,17 +1,19 @@
 #!/bin/sh
 
+# Getting current container id
+container=$(docker ps -aqf "ancestor=mariobarbareschi/nova-nre" -f "status=running")
+
 # Getting proper QEMU version (2.0.0)
 if [[ -z $QEMU_BIN_x86_64 ]]; then
   QEMU_BIN_x86_64=qemu-system-x86_64
 fi
 if ! [[ $($QEMU_BIN_x86_64 -version) =~ 'version 2.0.0' ]]; then
-  echo 'Downloading and compiling QEMU 2.0.0'
+  echo 'Copying and compiling QEMU 2.0.0'
   cd $(dirname $0)
   cd ..
   rm -fr qemu/
-  git clone --branch v2.0.0 https://github.com/qemu/qemu
+  docker cp $container:/opt/qemu ./
   cd qemu
-  git submodule update --init dtc
   ./configure
   make
   QEMU_BIN_x86_64=$PWD/x86_64-softmmu/qemu-system-x86_64
@@ -19,7 +21,6 @@ fi
 
 # Moving compiled runtime environment outside
 cd $(dirname $0)
-container=$(docker ps -aqf "ancestor=mariobarbareschi/nova-nre" -f "status=running")
 docker cp $container:/opt/NRE ./
 cd ./NRE/nre/build/x86_32-release
 cd dist
