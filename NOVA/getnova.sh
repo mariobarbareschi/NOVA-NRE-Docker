@@ -1,31 +1,31 @@
 #!/bin/sh
 
-# Getting current container id
 container=$(docker ps -aqf "ancestor=mariobarbareschi/nova-nre" -f "status=running")
+nova_dir=$(cd `dirname $0` && pwd)
 
 # Getting proper QEMU version (2.0.0)
 if [[ -z $QEMU_BIN_x86_64 ]]; then
   QEMU_BIN_x86_64=qemu-system-x86_64
 fi
+if [[ -f $nova_dir/qemu/x86_64-softmmu/qemu-system-x86_64 ]]; then
+  QEMU_BIN_x86_64=$nova_dir/qemu/x86_64-softmmu/qemu-system-x86_64
+fi
 if ! [[ $($QEMU_BIN_x86_64 -version) =~ 'version 2.0.0' ]]; then
   echo 'Copying and compiling QEMU 2.0.0'
-  cd $(dirname $0)
-  cd ..
-  rm -fr qemu/
-  docker cp $container:/opt/qemu ./
-  cd qemu
-  ./configure
+  rm -fr $nova_dir/qemu/
+  docker cp $container:/opt/qemu $nova_dir
+  cd $nova_dir/qemu/
+  ./configure --target-list=x86_64-softmmu
   make
-  QEMU_BIN_x86_64=$PWD/x86_64-softmmu/qemu-system-x86_64
+  QEMU_BIN_x86_64=$nova_dir/qemu/x86_64-softmmu/qemu-system-x86_64
 fi
 
 # Moving compiled runtime environment outside
-cd $(dirname $0)
-docker cp $container:/opt/NRE ./
-cd ./NRE/nre/build/x86_32-release
+docker cp $container:/opt/NRE $nova_dir
+cd $nova_dir/NRE/nre/build/x86_32-release
 cd dist
-rm -r ./imgs
-ln -s ../../../dist/imgs ./imgs
+rm -r imgs
+ln -s ../../../dist/imgs imgs
 cd ..
 
 # $QEMU_BIN_x86_64 should be used if you need to specify an alternative path for qemu

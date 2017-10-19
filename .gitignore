@@ -1,6 +1,6 @@
 # File used to launch NRE on qemu
-imgs
-qemu/
+NOVA/NRE/
+NOVA/qemu/
 
 # Prerequisites
 *.d
