@@ -1,0 +1,13 @@
+# nut.yml
+syntax_version: "7"
+project_name: NOVA-NRE-Docker
+enable_gui: true # forward X11 to run graphical application from within the container
+                 # On OSX, you have to install an X11 server first : XQuartz (http://www.xquartz.org/) (and you may need to restart your terminal or to reboot, in order to initialize environment variables properly)
+                 # On Ubuntu, depending on your config, you may need to run "xhost+" before running nut.
+docker_image: mariobarbareschi/nova-nre:xquartz
+macros:
+  run:
+    usage: run the project in the container
+    actions:
+    - cd /opt/NRE/nre
+    - ./b qemu boot/vmmng

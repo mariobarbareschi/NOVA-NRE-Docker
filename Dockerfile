@@ -25,7 +25,3 @@ RUN \
   git submodule init && git submodule update && \
   cd nre/ && \
   ./dist/download.sh
-
-ENTRYPOINT \
-  cd /opt/NRE/nre && \
-  ./b qemu boot/vmmng
