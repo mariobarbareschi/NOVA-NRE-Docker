@@ -3,7 +3,8 @@
 if [ ! "$(ls -A /mnt/NRE)" ]; then
   echo "[nresync] Found empty NRE directory in host system. Copying sources..."
   rsync -a /src/NRE/ /mnt/NRE
-  echo "[nresync] Done."
+  chmod 777 -R /mnt/NRE 
+ echo "[nresync] Done."
 elif [ "$(diff -x .git -r /mnt/NRE /src/NRE)" ]; then
   echo "[nresync] Found updated NRE directory in host system. Applying changes..."
   rsync -av /mnt/NRE/ /opt/NRE

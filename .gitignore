@@ -1,6 +1,9 @@
 # NRE mount point
 NRE
 
+# IDE
+.vscode
+
 # Prerequisites
 *.d
 
