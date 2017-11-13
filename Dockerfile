@@ -32,6 +32,7 @@ RUN cd /opt && \
     git submodule init && git submodule update && \
     mkdir -p ${NRE_SRC} && \
     cp -R /opt/NRE /src && \
+    chmod 777 -R ${NRE_SRC} && \
     cd cross && \
     ./build.sh ${NRE_TARGET} && \
     cd ../nre && \
